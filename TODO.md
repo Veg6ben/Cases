@@ -1,0 +1,4 @@
+- [ ] Reemplazar todos los green-400 por pink-400 en index.html
+- [ ] Reemplazar todos los green-600 por pink-600 en index.html
+- [x] Añadir style="pointer-events: none;" a los divs de overlay para evitar que interfieran con el zoom de las imágenes
+  - Esto permite que los eventos de clic en las imágenes funcionen correctamente sin ser bloqueados por los overlays de hover.
