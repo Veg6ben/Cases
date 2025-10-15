@@ -72,8 +72,8 @@
   <div class="w-screen min-h-screen bg-transparent">
 
     <!-- Header + Nav -->
-    <div class="container mx-auto relative md:px-0 px-4 my-0 bg-purple-700 bg-purple-100 rounded-xl overflow-hidden">
-      <nav class="bg-purple-900 bg-purple-800 shadow-lg w-full z-50">
+    <div class="container mx-auto relative md:px-0 px-4 my-0 bg-rose-300 bg-rose-300 rounded-xl overflow-hidden">
+      <nav class="bg-rose-400 bg-purple-800 shadow-lg w-full z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between items-center h-16">
             <div class="flex-shrink-0">
@@ -92,11 +92,9 @@
             </div>
 
             <div class="hidden md:flex space-x-8 text-gray-300 dark:text-gray-300">
-              <a href="#about" class="text-pink-400 dark:text-pink-400 hover:bg-gray-700 dark:hover:bg-gray-700 px-3 py-2 rounded-md">Home</a>
+              <a href="#clients" class="hover:text-pink-400 dark:hover:text-pink-400 hover:bg-gray-700 dark:hover:bg-gray-700 px-3 py-2 rounded-md">Home</a>
               <a href="#" onclick="document.querySelector('.imagenesGrid').scrollIntoView({behavior:'smooth'}); return false;" class="hover:text-pink-400 dark:hover:text-pink-400 hover:bg-gray-700 dark:hover:bg-gray-700 px-3 py-2 rounded-md">Galeria</a>
-              <a href="#testimonials" class="hover:text-pink-400 dark:hover:text-pink-400 hover:bg-gray-700 dark:hover:bg-gray-700 px-3 py-2 rounded-md">Testimonials</a>
-              <a href="#clients" class="hover:text-pink-400 dark:hover:text-pink-400 hover:bg-gray-700 dark:hover:bg-gray-700 px-3 py-2 rounded-md">Clients</a>
-              <a href="#fun-facts" class="hover:text-pink-400 dark:hover:text-pink-400 hover:bg-gray-700 dark:hover:bg-gray-700 px-3 py-2 rounded-md">Fun Facts</a>
+              <a href="#testimonials" class="hover:text-pink-400 dark:hover:text-pink-400 hover:bg-gray-700 dark:hover:bg-gray-700 px-3 py-2 rounded-md">Testimonios</a>
             </div>
 
             <div class="md:hidden flex items-center">
@@ -140,9 +138,8 @@
                     <div class="bg-gray-200 h-48 md:h-64 flex items-center justify-center">
                       <img :src="slide.image" :alt="slide.title" class="w-full h-full object-cover" @error="handleImageError(slide)">
                     </div>
-                    <div class="p-4">
-                      <h3 x-text="slide.title" class="text-xl font-semibold"></h3>
-                      <p x-text="slide.description" class="text-transparent bg-gradient-to-r from-pink-300 to-purple-500 bg-clip-text mt-2"></p>
+                    <div class="p-4 flex justify-center items-center mb-4" >
+                      <p x-text="slide.description" class="text-transparent bg-gradient-to-r from-pink-300 to-purple-500 bg-clip-text mt-4 font-bold flex items-center justify-center"></p>
                     </div>
                   </div>
                 </div>
@@ -150,12 +147,12 @@
             </div>
           </div>
 
-          <button @click="prev()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 -ml-4">
+          <button @click="prev()" class="absolute left-0 top-1/2 -translate-y-1/2 bg-rose-100 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 -ml-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          <button @click="next()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 -mr-4">
+          <button @click="next()" class="absolute right-0 top-1/2 -translate-y-1/2 bg-rose-100 hover:bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md z-10 -mr-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
@@ -174,10 +171,11 @@
     <section class="min-h-screen flex items-center justify-center p-4 overflow-hidden relative">
       <div id="particles"></div>
       <div class="text-center z-10">
+        <img src="images/logo.jpeg" alt="Cream Cases logo" class="mx-auto mb-12 w-60 h-60 object-contain rounded-md shadow-lg" loading="eager" decoding="async">
         <h1 class="text-6xl font-bold mb-4 text-white neon-text glitch hover-3d" data-text="Cream Cases">Cream Cases</h1>
         <p class="text-xl text-cyan-300 mb-8">Personalízalos a tu estilo, hay infinitas posibilidades.</p>
         <button class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold py-3 px-8 rounded-full hover:from-cyan-600 hover:to-blue-600 transition-all duration-300 hover:scale-110 inline-block">
-          <i class="fas fa-rocket mr-2"></i>Launch Now
+          <i class="fas fa-rocket mr-2"></i>¡Compar Ahora!
         </button>
       </div>
     </section>
@@ -191,18 +189,13 @@
             <div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group">
               <img src="images/case1.jpeg" alt="Nature" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
-                <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h5 class="text-4xl font-bold text-white ">Diseño único y personalizado para tu dispositivo</h5>
-                </div>
+             
               </div>
             </div>
 
             <div class="relative overflow-hidden rounded-2xl shadow-lg group">
               <img src="images/case2.jpeg" alt="Art" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
-                <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Artistic Expressions</h4>
-                </div>
               </div>
             </div>
 
@@ -210,7 +203,7 @@
               <img src="images/case4.jpeg" alt="Technology" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Tech Innovations</h4>
+                 
                 </div>
               </div>
             </div>
@@ -219,7 +212,7 @@
               <img src="images/case5.jpeg" alt="Travel" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Travel Adventures</h4>
+                 
                 </div>
               </div>
             </div>
@@ -228,7 +221,7 @@
               <img src="images/case23.jpeg" alt="Art" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Artistic Expressions</h4>
+               
                 </div>
               </div>
             </div>
@@ -237,7 +230,7 @@
               <img src="images/case7.jpeg" alt="Technology" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Tech Innovations</h4>
+               
                 </div>
               </div>
             </div>
@@ -246,7 +239,7 @@
               <img src="images/case8.jpeg" alt="Sport" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Chess</h4>
+            
                 </div>
               </div>
             </div>
@@ -255,8 +248,7 @@
               <img src="images/case9.jpeg" alt="Nature" class="w-full h-full object-contain">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 class="text-2xl font-bold text-white">Explore Nature</h3>
-                  <p class="text-white">Discover the beauty of the natural world</p>
+               
                 </div>
               </div>
             </div>
@@ -265,7 +257,7 @@
               <img src="images/case10.jpeg" alt="Sport" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Football</h4>
+                 
                 </div>
               </div>
             </div>
@@ -274,7 +266,7 @@
               <img src="images/case11.jpeg" alt="Travel" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Travel Adventures</h4>
+                  
                 </div>
               </div>
             </div>
@@ -283,8 +275,7 @@
               <img src="images/case12.jpeg" alt="Nature" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 class="text-2xl font-bold text-white">Explore Nature</h3>
-                  <p class="text-white">Discover the beauty of the natural world</p>
+                  
                 </div>
               </div>
             </div>
@@ -293,7 +284,7 @@
               <img src="images/case13.jpeg" alt="Travel" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Travel Adventures</h4>
+                  
                 </div>
               </div>
             </div>
@@ -302,7 +293,7 @@
               <img src="images/case14.jpeg" alt="Travel" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Travel Adventures</h4>
+               
                 </div>
               </div>
             </div>
@@ -311,7 +302,7 @@
               <img src="images/case15.jpeg" alt="Travel" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Travel Adventures</h4>
+                 
                 </div>
               </div>
             </div>
@@ -320,7 +311,7 @@
               <img src="images/case16.jpeg" alt="Travel" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Travel Adventures</h4>
+                 
                 </div>
               </div>
             </div>
@@ -329,7 +320,7 @@
               <img src="images/case17.jpeg" alt="Art" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Artistic Expressions</h4>
+                 
                 </div>
               </div>
             </div>
@@ -338,7 +329,7 @@
               <img src="images/case18.jpeg" alt="Art" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Artistic Expressions</h4>
+            
                 </div>
               </div>
             </div>
@@ -347,8 +338,7 @@
               <img src="images/case19.jpeg" alt="Nature" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 class="text-2xl font-bold text-white">Explore Nature</h3>
-                  <p class="text-white">Discover the beauty of the natural world</p>
+              
                 </div>
               </div>
             </div>
@@ -357,7 +347,7 @@
               <img src="images/case20.jpeg" alt="Art" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Artistic Expressions</h4>
+                 
                 </div>
               </div>
             </div>
@@ -366,7 +356,7 @@
               <img src="images/case21.jpeg" alt="Art" class="w-full h-90 object-cover">
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="pointer-events: none;">
                 <div class="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 class="text-xl font-bold text-white">Artistic Expressions</h4>
+              
                 </div>
               </div>
             </div>

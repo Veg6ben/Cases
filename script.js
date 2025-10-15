@@ -26,8 +26,6 @@ function closeMobileMenu() {
 // Image zoom logic
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('.imagenesGrid img');
-    console.log('Images found: ' + images.length);
-
     images.forEach(function(img) {
         img.style.cursor = 'pointer';
         img.title = 'Haz clic para ampliar';
