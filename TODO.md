@@ -1,4 +1,3 @@
-- [ ] Reemplazar todos los green-400 por pink-400 en index.html
-- [ ] Reemplazar todos los green-600 por pink-600 en index.html
-- [x] Añadir style="pointer-events: none;" a los divs de overlay para evitar que interfieran con el zoom de las imágenes
-  - Esto permite que los eventos de clic en las imágenes funcionen correctamente sin ser bloqueados por los overlays de hover.
+- [ ] Mover el div #particles fuera de la sección hero para que cubra toda la pantalla
+- [ ] Agregar estilos CSS para #particles como fixed y full screen
+- [ ] Verificar que las partículas se vean en todo el body

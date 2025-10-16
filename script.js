@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Agregar event listeners a todos los botones "Comprar!"
-    const allComprarBtns = document.querySelectorAll('button[class*="bg-gradient-to-r"][class*="from-blue-500"]');
+    const allComprarBtns = document.querySelectorAll('button[class*="bg-gradient-to-r"][class*="from-purple-500"]');
     console.log('Todos los botones comprar encontrados:', allComprarBtns.length);
     allComprarBtns.forEach((btn, index) => {
         btn.addEventListener('click', function() {
