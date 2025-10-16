@@ -25,7 +25,7 @@ function closeMobileMenu() {
 
 // Image zoom logic
 document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('.imagenesGrid img');
+    const images = document.querySelectorAll('.imagenesGrid img, [x-data="carousel()"] img');
     images.forEach(function(img) {
         img.style.cursor = 'pointer';
         img.title = 'Haz clic para ampliar';
@@ -268,59 +268,115 @@ function carousel() {
     }
 }
 
+// Función para enviar imagen a WhatsApp
+function enviarAWhatsApp(imagenSrc) {
+    const numeroWhatsApp = '573114240939'; // Número completo con código de país (+57)
+    // Extraer solo el nombre del archivo sin extensión
+    const nombreImagen = imagenSrc.split('/').pop().replace('.jpeg', '').replace('.jpg', '');
+    const mensaje = `Hola, estoy interesado en este estuche personalizado. Modelo: ${nombreImagen}`;
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, '_blank');
+}
+
+// Event listener para el botón comprar
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded');
+    const comprarBtn = document.getElementById('comprar-btn');
+    console.log('comprarBtn:', comprarBtn);
+    if (comprarBtn) {
+        comprarBtn.addEventListener('click', function() {
+            console.log('Botón comprar clickeado');
+            // Obtener la imagen del contenedor padre
+            const img = this.closest('.relative').querySelector('img');
+            console.log('Imagen encontrada:', img);
+            if (img) {
+                console.log('Imagen src:', img.src);
+                enviarAWhatsApp(img.src);
+            } else {
+                console.log('No se encontró imagen');
+            }
+        });
+    } else {
+        console.log('Botón comprar no encontrado');
+    }
+
+    // Agregar event listeners a todos los botones "Comprar!"
+    const allComprarBtns = document.querySelectorAll('button[class*="bg-gradient-to-r"][class*="from-blue-500"]');
+    console.log('Todos los botones comprar encontrados:', allComprarBtns.length);
+    allComprarBtns.forEach((btn, index) => {
+        btn.addEventListener('click', function() {
+            console.log(`Botón comprar ${index + 1} clickeado`);
+            // Obtener la imagen del contenedor padre
+            const img = this.closest('.relative').querySelector('img');
+            console.log('Imagen encontrada:', img);
+            if (img) {
+                console.log('Imagen src:', img.src);
+                enviarAWhatsApp(img.src);
+            } else {
+                console.log('No se encontró imagen');
+            }
+        });
+    });
+});
+
 // Slider logic (seems unused, but included)
 document.addEventListener('DOMContentLoaded', function() {
     const slider = document.getElementById('slider');
     const prevBtn = document.getElementById('prev');
     const nextBtn = document.getElementById('next');
     const dots = document.querySelectorAll('.dot');
-    let currentIndex = 0;
-    const totalSlides = 5;
-    let autoSlideInterval;
 
-    function updateSlider() {
-        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (slider && prevBtn && nextBtn) {
+        let currentIndex = 0;
+        const totalSlides = 5;
+        let autoSlideInterval;
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlider();
+        }
+
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+
         dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
+            dot.addEventListener('click', () => goToSlide(index));
         });
-    }
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % totalSlides;
+        // Auto slide
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        // Pause on hover
+        const sliderContainer = document.querySelector('.relative.overflow-hidden');
+        if (sliderContainer) {
+            sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+            sliderContainer.addEventListener('mouseleave', startAutoSlide);
+        }
+
+        startAutoSlide();
         updateSlider();
     }
-
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateSlider();
-    }
-
-    function goToSlide(index) {
-        currentIndex = index;
-        updateSlider();
-    }
-
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => goToSlide(index));
-    });
-
-    // Auto slide
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 4000);
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-
-    // Pause on hover
-    const sliderContainer = document.querySelector('.relative.overflow-hidden');
-    sliderContainer.addEventListener('mouseenter', stopAutoSlide);
-    sliderContainer.addEventListener('mouseleave', startAutoSlide);
-
-    startAutoSlide();
-    updateSlider();
 });
