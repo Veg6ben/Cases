@@ -1,3 +1,0 @@
-- [ ] Mover el div #particles fuera de la sección hero para que cubra toda la pantalla
-- [ ] Agregar estilos CSS para #particles como fixed y full screen
-- [ ] Verificar que las partículas se vean en todo el body

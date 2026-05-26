@@ -280,17 +280,14 @@ function enviarAWhatsApp(imagenSrc) {
 
 // Event listener para el botón comprar
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded');
-    const comprarBtn = document.getElementById('comprar-btn');
-    console.log('comprarBtn:', comprarBtn);
+  
+    const comprarBtn = document.querySelector('.btn-comprar');
     if (comprarBtn) {
-        comprarBtn.addEventListener('click', function() {
-            console.log('Botón comprar clickeado');
+        comprarBtn.addEventListener('click', function() {   
             // Obtener la imagen del contenedor padre
             const img = this.closest('.relative').querySelector('img');
             console.log('Imagen encontrada:', img);
             if (img) {
-                console.log('Imagen src:', img.src);
                 enviarAWhatsApp(img.src);
             } else {
                 console.log('No se encontró imagen');
@@ -380,3 +377,5 @@ document.addEventListener('DOMContentLoaded', function() {
         updateSlider();
     }
 });
+
+
